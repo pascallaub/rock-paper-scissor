@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="/thumb.svg" />
   <script type="module" defer src="/src/main.js"></script>
+  <script src="./src/gameLogic.js" type="module" defer></script>
   <link rel="stylesheet" href="style.css">
   <title>Rock Paper Scissors</title>
 </head>
-<body>
+<body class="bg-orange-300">
   <!-- Header-Bereich -->
   <header class="flex justify-center items-center p-4 bg-gray-800 text-white">
     <h1 class="font-metalmania text-3xl font-bold mr-8">Rock Paper Scissors</h1>
@@ -19,45 +20,50 @@
   </header>
 
   <!-- Hauptbereich mit Buttons -->
-  <main class="grid grid-cols-2 grid-rows-2 w-64 h-64 gap-4 bg-white rounded-lg mt-8 p-8 place-items-center">
-    <button data-choice="paper" class="size-16 bg-blue-500 rounded-full w-20 h-20 p-4 hover:scale-105 transition transform">
-      <img src="/paper.svg" alt="Paper" />
-    </button>
-    <button data-choice="scissors" class="size-16 bg-red-500 rounded-full w-20 h-20 p-4 hover:scale-105 transition transform">
-      <img src="/scissors.svg" alt="Scissors" />
-    </button>
-    <button data-choice="rock" class="col-span-2 size-16 bg-green-500 rounded-full w-20 h-20 p-4 hover:scale-105 transition transform">
-      <img src="/rock.svg" alt="Rock" />
-    </button>
-  </main>
+  <div id="gamecontainer" class="hidden"></div>
+    <main class="grid grid-cols-2 grid-rows-2 w-64 h-64 gap-4 bg-orange-300 rounded-lg mt-8 p-8 place-items-center mx-auto">
+      <button data-choice="paper" class="size-16 bg-blue-500 rounded-full w-20 h-20 p-4 hover:scale-105 transition transform">
+        <img src="/paper.svg" alt="Paper" />
+      </button>
+      <button data-choice="scissors" class="size-16 bg-red-500 rounded-full w-20 h-20 p-4 hover:scale-105 transition transform">
+        <img src="/scissors.svg" alt="Scissors" />
+      </button>
+      <button data-choice="rock" class="col-span-2 size-16 bg-green-500 rounded-full w-20 h-20 p-4 hover:scale-105 transition transform">
+        <img src="/rock.svg" alt="Rock" />
+      </button>
+    </main>
+  </div>
 
   <!-- Startbildschirm -->
-  <div id="startscreen" class="fixed inset-0 flex flex-col justify-center items-center bg-gray-900 text-white font-metalmania text-center">
-    <h1 class="text-5xl mb-2">Rock</h1>
-    <h2 class="text-4xl mb-2">Paper</h2>
-    <h3 class="text-3xl mb-6">Scissors</h3>
-    <button id="startbutton" class="bg-yellow-400 text-gray-800 px-6 py-3 rounded hover:bg-yellow-300 transition transform text-2xl">Start Game</button>
-  </div>
+  
+    <div id="startscreen" class="fixed inset-0 flex flex-col justify-center items-center bg-gray-900 text-white font-metalmania text-center">
+      <h1 class="text-5xl mb-2">Rock</h1>
+      <h2 class="text-4xl mb-2">Paper</h2>
+      <h3 class="text-3xl mb-6">Scissors</h3>
+      <button id="startbutton" class="bg-yellow-400 text-gray-800 px-6 py-3 rounded hover:bg-yellow-300 transition transform text-2xl">Start Game</button>
+      <button id="rulebutton" class="bg-yellow-400 text-gray-800 px-6 py-3 rounded hover:bg-yellow-300 transition transform text-xl mt-2">Rules</button>
+    </div>
+  
 
   <!-- Regeln -->
   <div id="rules" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
     <div class="relative bg-white text-gray-900 p-6 w-3/4 max-w-xl rounded shadow-lg">
       <h2 class="text-2xl font-bold mb-4 font-metalmania">Rules</h2>
       <p class="mb-4">Rock Paper Scissors is a game that is played between two players...</p>
-      <img src="\close.svg" alt="Close" id="closebutton" class="absolute top-2 right-2 w-6 h-6 cursor-pointer" />
+      <img src="/close.svg" alt="Close" id="closebutton" class="absolute top-2 right-2 bg-yellow-400 rounded hover:bg-yellow-300 transition transform w-6 h-6 cursor-pointer" />
     </div>
   </div>
 
   <!-- Ergebnisanzeige -->
   <div id="results" class="hidden mt-8 text-center">
-    <h3 id="result" class="text-3xl font-bold text-green-500 font-metalmania">You win</h3>
-    <div class="flex justify-center items-start gap-8 mt-4">
+    <h3 id="resulttext" class="text-3xl font-bold text-green-500 font-metalmania">You win</h3>
+    <div class="flex justify-center items-start gap-10 mt-4">
       <p class="text-xl font-semibold mb-2">You chose:</p>
-      <div id="userchoice"></div>
+      <div id="userchoice" class="text-xl font-semibold mb-2 text-blue-500"></div>
     </div>
-    <div>
+    <div class="flex justify-center items-start gap-6 mt-4">
       <p class="text-xl font-semibold mb-2">Computer chose:</p>
-      <div id="computerchoice"></div>
+      <div id="computerchoice" class="text-xl font-semibold mb-2 text-blue-500 text-center"></div>
     </div>
     <button id="playagain" class="mt-6 bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-500 transition transform">Play Again</button>
   </div>
