@@ -9,11 +9,11 @@
   <link rel="stylesheet" href="style.css">
   <title>Rock Paper Scissors</title>
 </head>
-<body class="bg-orange-300">
+<body class="min-h-screen bg-gradient-to-b from-blue-900 to-blue-800 text-white font-metalmania">
   <!-- Header-Bereich -->
-  <header class="flex justify-center items-center p-4 bg-gray-800 text-white">
-    <h1 class="font-metalmania text-3xl font-bold mr-8">Rock Paper Scissors</h1>
-    <div class="bg-gray-700 px-4 py-2 rounded text-xl font-semibold">
+  <header class="w-[90%] max-w-[900px] mx-auto mt-8 flex justify-between items-center border border-white p-4 rounded">
+    <h1 class="font-metalmania text-3xl font-bold">Rock Paper Scissors</h1>
+    <div class="font-metalmania font-bold gap-2">
       <span>Score</span>
       <span id="score">0</span>
     </div>
@@ -21,14 +21,14 @@
 
   <!-- Hauptbereich mit Buttons -->
   <div id="gamecontainer" class="hidden"></div>
-    <main class="grid grid-cols-2 grid-rows-2 w-64 h-64 gap-4 bg-orange-300 rounded-lg mt-8 p-8 place-items-center mx-auto">
-      <button data-choice="paper" class="size-16 bg-blue-500 rounded-full w-20 h-20 p-4 hover:scale-105 transition transform">
+    <main class="grid grid-cols-2 grid-rows-2 w-64 h-64 gap-4 bg-transparent border border-white rounded-lg mt-8 p-8 place-items-center mx-auto">
+      <button data-choice="paper" class="rounded-full w-20 h-20 p-4 bg-blue-500 hover:scale-105 transform transition ring-4 ring-white">
         <img src="/paper.svg" alt="Paper" />
       </button>
-      <button data-choice="scissors" class="size-16 bg-red-500 rounded-full w-20 h-20 p-4 hover:scale-105 transition transform">
+      <button data-choice="scissors" class="rounded-full w-20 h-20 p-4 bg-red-500 hover:scale-105 transform transition ring-4 ring-white">
         <img src="/scissors.svg" alt="Scissors" />
       </button>
-      <button data-choice="rock" class="col-span-2 size-16 bg-green-500 rounded-full w-20 h-20 p-4 hover:scale-105 transition transform">
+      <button data-choice="rock" class="col-span-2 rounded-full w-20 h-20 p-4 bg-green-500 hover:scale-105 transform transition ring-4 ring-white">
         <img src="/rock.svg" alt="Rock" />
       </button>
     </main>
@@ -36,12 +36,12 @@
 
   <!-- Startbildschirm -->
   
-    <div id="startscreen" class="fixed inset-0 flex flex-col justify-center items-center bg-gray-900 text-white font-metalmania text-center">
-      <h1 class="text-5xl mb-2">Rock</h1>
-      <h2 class="text-4xl mb-2">Paper</h2>
-      <h3 class="text-3xl mb-6">Scissors</h3>
-      <button id="startbutton" class="bg-yellow-400 text-gray-800 px-6 py-3 rounded hover:bg-yellow-300 transition transform text-2xl">Start Game</button>
-      <button id="rulebutton" class="bg-yellow-400 text-gray-800 px-6 py-3 rounded hover:bg-yellow-300 transition transform text-xl mt-2">Rules</button>
+    <div id="startscreen" class="fixed inset-0 flex flex-col justify-center items-center bg-gradient-to-b from-blue-900 to-blue-800 text-white font-metalmania text-center">
+      <h1 class="text-5xl">Rock</h1>
+      <h2 class="text-4xl">Paper</h2>
+      <h3 class="text-3xl">Scissors</h3>
+      <button id="startbutton" class="bg-transparent text-white-800 px-6 py-3 rounded hover:bg-gray-800 transition transform text-2xl">Start Game</button>
+      <button id="rulebutton" class="fixed bottom-8 right-8 border border-white px-4 py-2 rounded hover:bg-white hover:text-black transition">Rules</button>
     </div>
   
 
@@ -55,17 +55,17 @@
   </div>
 
   <!-- Ergebnisanzeige -->
-  <div id="results" class="hidden mt-8 text-center">
-    <h3 id="resulttext" class="text-3xl font-bold text-green-500 font-metalmania">You win</h3>
-    <div class="flex justify-center items-start gap-10 mt-4">
-      <p class="text-xl font-semibold mb-2">You chose:</p>
-      <div id="userchoice" class="text-xl font-semibold mb-2 text-blue-500"></div>
+  <div id="results" class="hidden fixed inset-0 flex flex-col items-center justify-center bg-black bg-opacity-70 text-center text-white p-4">
+    <h3 id="resulttext" class="text-4xl font-bold text-green-400 mb-4">You win</h3>
+    <div class="flex gap-6 items-center mb-4">
+      <p class="text-xl">You chose:</p>
+      <div id="userchoice" class="text-xl text-blue"></div>
     </div>
-    <div class="flex justify-center items-start gap-6 mt-4">
-      <p class="text-xl font-semibold mb-2">Computer chose:</p>
-      <div id="computerchoice" class="text-xl font-semibold mb-2 text-blue-500 text-center"></div>
+    <div class="flex gap-6 items-center mb-8">
+      <p class="text-xl">Computer chose:</p>
+      <div id="computerchoice" class="text-xl text-blue"></div>
     </div>
-    <button id="playagain" class="mt-6 bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-500 transition transform">Play Again</button>
+    <button id="playagain" class="bg-purple-600 px-6 py-3 rounded hover:bg-purple-500 transition">Play Again</button>
   </div>
 </body>
 </html>
