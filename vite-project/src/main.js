@@ -47,10 +47,6 @@ function updateUI(playerChoice, computerChoice, result) {
     computerChoiceDiv.textContent = computerChoice;
     resultText.textContent = result;
 
-    choiceButtons.forEach((button) => {
-        button.disabled = true;
-    });
-
     if (result === "win") {
         score++;
         resultText.textContent = "You win!";
@@ -75,7 +71,4 @@ playAgainButton.addEventListener("click", () => {
     results.classList.add("hidden");
     gameContainer.classList.remove("hidden");
 
-    choiceButtons.forEach((button) => {
-        button.disabled = false;
-    });
 });
